@@ -20,6 +20,18 @@ data/evidence/ctgov_designs.json
 data/evidence/.embed_cache.json
 data/synthetic/*.csv
 
+# Anything a user drops in to be analysed. This folder is where the container
+# mounts real measurement files, so on a PUBLIC repository it is the one path
+# that could leak a partner's data through an ordinary `git add -A`. The folder
+# itself and its README stay tracked so the container has somewhere to mount.
+data/incoming/*
+!data/incoming/README.md
+
+# Secrets, should any ever appear
+.env
+.env.*
+!.env.example
+
 # Offline pip wheelhouse (large)
 vendor/wheels/
 
