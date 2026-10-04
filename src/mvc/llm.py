@@ -43,9 +43,19 @@ def _post(path: str, payload: dict, timeout: float = 600) -> dict:
         raise LLMUnavailable(f"Ollama not reachable at {OLLAMA_URL}: {e}") from e
 
 
-def is_available(model: str | None = None) -> bool:
+def is_available(model: str | None = None, timeout: float = 8.0) -> bool:
+    """Is Ollama answering, and is `model` pulled?
+
+    The timeout was 2 s, which is long enough when Ollama is idle and too short
+    when it is not: the service stops answering /api/tags while it loads a
+    model into memory, so this check failed exactly when another part of the
+    app had just asked Ollama to warm up. A false "not available" is not a
+    harmless default here — callers silently take their fallback path and keep
+    it, so the cost of being wrong is asymmetric and the timeout should be
+    generous.
+    """
     try:
-        with urllib.request.urlopen(f"{OLLAMA_URL}/api/tags", timeout=2) as r:
+        with urllib.request.urlopen(f"{OLLAMA_URL}/api/tags", timeout=timeout) as r:
             tags = json.loads(r.read().decode())
     except Exception:
         return False

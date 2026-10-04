@@ -94,8 +94,18 @@ def _evidence():
 
 
 @st.cache_resource(show_spinner=False)
-def _searcher():
-    return HybridSearcher(chunks(load()))
+def _searcher(embeddings_available: bool):
+    """The searcher, rebuilt if the embedding model's availability changes.
+
+    `cache_resource` keeps one instance for the whole server process. A
+    searcher built during the seconds when Ollama was still starting had
+    already fallen back to BM25, and that fallback then outlived the reason
+    for it: the sidebar reported the model as pulled while the search mode
+    underneath said "no embedding model", in the same breath. Making
+    availability part of the cache key means the degraded instance is
+    replaced as soon as the model answers, instead of being frozen in.
+    """
+    return HybridSearcher(chunks(load()), use_embeddings=embeddings_available)
 
 
 @st.cache_resource(show_spinner=False)
@@ -144,6 +154,7 @@ with st.sidebar:
     # "reachable" only means the Ollama service answered. Which models are
     # actually pulled is a different question, and the one that decides what
     # this app can do — so it is the one shown.
+    _embeddings_ready = llm.is_available(llm.EMBED_MODEL)
     if llm.is_available():
         st.caption("Ollama service: running")
         for role, model in (("text (scenario parsing, extraction)", llm.LLM_MODEL),
@@ -154,7 +165,11 @@ with st.sidebar:
                        + ("" if here else "  _not pulled, rule-based fallback in use_"))
     else:
         st.caption("Ollama service: not running — every feature falls back to rules")
-    st.caption(f"**Search mode:** {_searcher().mode}")
+    mode = _searcher(_embeddings_ready).mode
+    st.caption(f"**Search mode:** {mode}")
+    if _embeddings_ready and "BM25 only" in mode:
+        st.caption("_The model is pulled but the corpus is not embedded yet — "
+                   "run a search once to build the cache (a minute on CPU)._")
 
 if uploaded is not None:
     df = pd.read_csv(uploaded)
@@ -350,7 +365,7 @@ with tabs[4]:
     q = st.text_input("Search", "does nasal IgA correlate with serum IgG?")
     citable_only = st.checkbox("Citable sources only", value=True)
     if q:
-        for h in _searcher().search(q, k=6, citable_only=citable_only):
+        for h in _searcher(_embeddings_ready).search(q, k=6, citable_only=citable_only):
             st.markdown(f"**`{h.chunk.chunk_id}`** · score {h.score:.4f} · ranks {h.ranks}")
             st.markdown(f"> {h.chunk.text}")
             st.caption(" · ".join(h.chunk.tags) or "no tag")
