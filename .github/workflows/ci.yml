@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[all]"
+
+      - name: Lint
+        run: |
+          pip install ruff
+          ruff check src tests app scripts
+
+      - name: Tests
+        run: pytest -q
+
+      - name: Eval suite (thresholds must hold)
+        run: python -m mvc.eval.run
+
+      - name: Demo runs end to end
+        run: python -m mvc.cli demo
+
+      - name: Evidence base integrity
+        run: |
+          python - <<'PY'
+          from mvc.evidence.extract import quote_in_source
+          from mvc.evidence.store import CITABLE, load
+          eb = load()
+          bad = []
+          for s in eb.studies:
+              for f in s.findings:
+                  ok, score = quote_in_source(f.quote, s.source_text)
+                  if not ok:
+                      bad.append(f"{f.finding_id} ({score:.2f})")
+              if s.level in CITABLE and not (s.doi or s.pmid):
+                  bad.append(f"{s.study_id}: citable with no identifier")
+          assert not bad, "unverifiable evidence: " + ", ".join(bad)
+          print(f"{len(eb.studies)} studies, {sum(len(s.findings) for s in eb.studies)} findings verified")
+          PY
+
+      - name: Upload artefacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: outputs-py${{ matrix.python-version }}
+          path: outputs/
+          if-no-files-found: ignore

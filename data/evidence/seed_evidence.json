@@ -1,0 +1,809 @@
+{
+  "version": "1",
+  "description": "Seed evidence base. 'verified_abstract' studies: every quote was checked against the publisher/PubMed abstract on 2026-10-02. 'to_verify' studies: identified (title + PMID) but abstract not yet retrieved — run `python -m mvc.cli fetch-evidence` to complete them. Never cite a 'to_verify' study as support. Includes Rosenheim 2026 (Vaccine, CC BY open access): the Novo Nordisk Foundation / Wellcome Trust workshop consensus report, whose body excerpts are held verbatim in full_text_excerpts.",
+  "studies": [
+    {
+      "study_id": "thwaites2023_laiv",
+      "citation": "Thwaites RS, Uruchurtu ASS, Negri VA, et al. Early mucosal events promote distinct mucosal and systemic antibody responses to live attenuated influenza vaccine. Nature Communications. 2023.",
+      "year": 2023,
+      "doi": "10.1038/s41467-023-43842-7",
+      "nct": "NCT04110366",
+      "url": "https://www.nature.com/articles/s41467-023-43842-7",
+      "pathogen": "influenza",
+      "vaccines": [
+        {
+          "name": "LAIV",
+          "pathogen": "influenza",
+          "platform": "live_attenuated",
+          "route": "intranasal"
+        }
+      ],
+      "population": "young adult volunteers",
+      "sampling_methods": [],
+      "compartments": [
+        "nasal",
+        "serum",
+        "blood_cells"
+      ],
+      "timepoints_days": [
+        7
+      ],
+      "assays": [],
+      "abstract": "Compared to intramuscular vaccines, nasally administered vaccines have the advantage of inducing local mucosal immune responses that may block infection and interrupt transmission of respiratory pathogens. Live attenuated influenza vaccine (LAIV) is effective in preventing influenza in children, but a correlate of protection for LAIV remains unclear. Studying young adult volunteers, we observe that LAIV induces distinct, compartmentalized, antibody responses in the mucosa and blood. Seeking immunologic correlates of these distinct antibody responses we find associations with mucosal IL-33 release in the first 8 hours post-inoculation and divergent CD8+ and circulating T follicular helper (cTfh) T cell responses 7 days post-inoculation. Mucosal antibodies are induced separately from blood antibodies, are associated with distinct immune responses early post-inoculation, and may provide a correlate of protection for mucosal vaccination. This study was registered as NCT04110366 and reports primary (mucosal antibody) and secondary (blood antibody, and nasal viral load and cytokine) endpoint data.",
+      "findings": [
+        {
+          "finding_id": "thwaites2023_f1",
+          "statement": "After intranasal LAIV, mucosal and blood antibody responses are compartmentalised (induced separately).",
+          "quote": "LAIV induces distinct, compartmentalized, antibody responses in the mucosa and blood.",
+          "tags": [
+            "compartmentalization",
+            "mucosal_vs_systemic",
+            "laiv",
+            "endpoint_choice"
+          ]
+        },
+        {
+          "finding_id": "thwaites2023_f2",
+          "statement": "Mucosal antibodies may be a correlate of protection for mucosal vaccination; serum alone is insufficient.",
+          "quote": "Mucosal antibodies are induced separately from blood antibodies, are associated with distinct immune responses early post-inoculation, and may provide a correlate of protection for mucosal vaccination.",
+          "tags": [
+            "correlate_of_protection",
+            "mucosal_endpoint",
+            "endpoint_choice"
+          ]
+        },
+        {
+          "finding_id": "thwaites2023_f3",
+          "statement": "Early mucosal events (first hours) and day-7 cellular responses are informative: very early sampling matters.",
+          "quote": "we find associations with mucosal IL-33 release in the first 8 hours post-inoculation and divergent CD8+ and circulating T follicular helper (cTfh) T cell responses 7 days post-inoculation.",
+          "tags": [
+            "early_sampling",
+            "timepoints",
+            "cellular"
+          ]
+        },
+        {
+          "finding_id": "thwaites2023_f4",
+          "statement": "A trial of intranasal LAIV used a mucosal antibody endpoint as primary endpoint and blood antibodies as secondary.",
+          "quote": "reports primary (mucosal antibody) and secondary (blood antibody, and nasal viral load and cytokine) endpoint data.",
+          "tags": [
+            "endpoint_choice",
+            "primary_endpoint",
+            "mucosal_endpoint"
+          ]
+        },
+        {
+          "finding_id": "thwaites2023_f5",
+          "statement": "No accepted correlate of protection exists for LAIV.",
+          "quote": "a correlate of protection for LAIV remains unclear.",
+          "tags": [
+            "correlate_of_protection",
+            "uncertainty",
+            "laiv"
+          ]
+        }
+      ],
+      "not_reported": [
+        "n_participants (in abstract)",
+        "nasal sampling method (in abstract)",
+        "assay units (in abstract)"
+      ],
+      "level": "verified_abstract"
+    },
+    {
+      "study_id": "bean2024_challenge",
+      "citation": "Bean R, Giurgea LT, Han A, et al. Mucosal correlates of protection after influenza viral challenge of vaccinated and unvaccinated healthy volunteers. mBio. 2024.",
+      "year": 2024,
+      "doi": "10.1128/mbio.02372-23",
+      "url": "https://journals.asm.org/doi/abs/10.1128/mbio.02372-23",
+      "pathogen": "influenza",
+      "vaccines": [
+        {
+          "name": "IIV",
+          "pathogen": "influenza",
+          "platform": "inactivated",
+          "route": "intramuscular"
+        }
+      ],
+      "population": "healthy volunteers (human challenge)",
+      "sampling_methods": [],
+      "compartments": [
+        "nasal",
+        "serum"
+      ],
+      "timepoints_days": [],
+      "assays": [
+        "hai",
+        "elisa_binding"
+      ],
+      "abstract": "The induction of systemic antibody titers against hemagglutinin has long been the main focus of influenza vaccination strategies, but mucosal immunity has also been shown to play a key role in the protection against respiratory viruses. By vaccinating and challenging healthy volunteers, we demonstrated that inactivated influenza vaccine (IIV) modestly reduced the rate of influenza while predominantly boosting serum antibody titers against hemagglutinin (HA) and HA stalk, a consequence of the low neuraminidase (NA) content of IIV and the intramuscular route of administration. The viral challenge induced nasal and serum responses against both HA and NA. Correlations between mucosal IgA and serum IgG against specific antigens were low, whether before or after challenge, suggesting a compartmentalization of immune responses. Even so, volunteers who developed viral shedding for multiple days had lower baseline titers across both systemic and mucosal compartments as compared to those with no shedding or a single day of shedding. Regression analysis showed that pre-challenge HA inhibition titers were the most consistent correlate of protection across clinical outcomes combining shedding and symptoms, with NA inhibition titers and HA IgG levels only predicting the duration of shedding. Despite the inclusion of data from multiple binding and functional antibody assays against HA and NA performed on both serum and nasal samples, multivariate models were unable to account for the variability in outcomes, emphasizing our imperfect understanding of immune correlates in influenza and the importance of refining models with assessments of innate and cellular immune responses.",
+      "findings": [
+        {
+          "finding_id": "bean2024_f1",
+          "statement": "Intramuscular inactivated influenza vaccine mainly boosts serum antibodies.",
+          "quote": "inactivated influenza vaccine (IIV) modestly reduced the rate of influenza while predominantly boosting serum antibody titers against hemagglutinin (HA) and HA stalk",
+          "tags": [
+            "intramuscular",
+            "systemic",
+            "comparator"
+          ]
+        },
+        {
+          "finding_id": "bean2024_f2",
+          "statement": "Mucosal IgA and serum IgG are weakly correlated: one compartment cannot stand in for the other.",
+          "quote": "Correlations between mucosal IgA and serum IgG against specific antigens were low, whether before or after challenge, suggesting a compartmentalization of immune responses.",
+          "tags": [
+            "compartmentalization",
+            "mucosal_vs_systemic",
+            "endpoint_choice",
+            "paired_sampling"
+          ]
+        },
+        {
+          "finding_id": "bean2024_f3",
+          "statement": "Baseline (pre-existing) titres in both compartments relate to outcome: baseline sampling is essential.",
+          "quote": "volunteers who developed viral shedding for multiple days had lower baseline titers across both systemic and mucosal compartments",
+          "tags": [
+            "baseline",
+            "prior_immunity",
+            "timepoints"
+          ]
+        },
+        {
+          "finding_id": "bean2024_f4",
+          "statement": "Combining many binding and functional assays did not fully explain outcomes: correlates remain uncertain.",
+          "quote": "multivariate models were unable to account for the variability in outcomes, emphasizing our imperfect understanding of immune correlates in influenza",
+          "tags": [
+            "uncertainty",
+            "correlate_of_protection",
+            "assay"
+          ]
+        }
+      ],
+      "not_reported": [
+        "nasal sampling method (in abstract)",
+        "sampling days (in abstract)",
+        "n_participants (in abstract)"
+      ],
+      "level": "verified_abstract"
+    },
+    {
+      "study_id": "madhavan2022_chadox1_in",
+      "citation": "Madhavan M, Ritchie AJ, Aboagye J, et al. Tolerability and immunogenicity of an intranasally-administered adenovirus-vectored COVID-19 vaccine: An open-label partially-randomised ascending dose phase I trial. EBioMedicine. 2022.",
+      "year": 2022,
+      "doi": "10.1016/j.ebiom.2022.104298",
+      "pmid": "36229342",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36229342/",
+      "pathogen": "SARS-CoV-2",
+      "vaccines": [
+        {
+          "name": "ChAdOx1 nCoV-19 (intranasal)",
+          "pathogen": "SARS-CoV-2",
+          "platform": "adenovirus_vector",
+          "route": "intranasal"
+        },
+        {
+          "name": "ChAdOx1 nCoV-19 (intramuscular)",
+          "pathogen": "SARS-CoV-2",
+          "platform": "adenovirus_vector",
+          "route": "intramuscular"
+        }
+      ],
+      "population": "healthy adults, vaccine-naive and previously vaccinated",
+      "n_participants": 30,
+      "sampling_methods": [],
+      "compartments": [
+        "nasal",
+        "serum"
+      ],
+      "timepoints_days": [],
+      "assays": [],
+      "abstract": "[Partial — only verbatim sentences retrieved] Intranasal vaccination may induce protective local and systemic immune responses against respiratory pathogens. ... Reactogenicity was mild or moderate. ... Systemic responses to intranasal vaccination were typically weaker than after intramuscular vaccination with ChAdOx1 nCoV-19. ... This formulation of intranasal ChAdOx1 nCoV-19 showed an acceptable tolerability profile but induced neither a consistent mucosal antibody response nor a strong systemic response.",
+      "findings": [
+        {
+          "finding_id": "madhavan2022_f1",
+          "statement": "An intranasal adenovirus-vectored vaccine can fail to induce a consistent mucosal antibody response: responder rate must be planned for.",
+          "quote": "This formulation of intranasal ChAdOx1 nCoV-19 showed an acceptable tolerability profile but induced neither a consistent mucosal antibody response nor a strong systemic response.",
+          "tags": [
+            "responder_rate",
+            "uncertainty",
+            "adenovirus_vector",
+            "sample_size"
+          ]
+        },
+        {
+          "finding_id": "madhavan2022_f2",
+          "statement": "Intranasal delivery gave weaker systemic responses than intramuscular delivery of the same vector.",
+          "quote": "Systemic responses to intranasal vaccination were typically weaker than after intramuscular vaccination with ChAdOx1 nCoV-19.",
+          "tags": [
+            "mucosal_vs_systemic",
+            "route",
+            "comparator",
+            "systemic"
+          ]
+        },
+        {
+          "finding_id": "madhavan2022_f3",
+          "statement": "Rationale for intranasal vaccination: local and systemic protection.",
+          "quote": "Intranasal vaccination may induce protective local and systemic immune responses against respiratory pathogens.",
+          "tags": [
+            "rationale",
+            "intranasal"
+          ]
+        }
+      ],
+      "not_reported": [
+        "sampling method",
+        "sampling days",
+        "assay units"
+      ],
+      "level": "verified_abstract"
+    },
+    {
+      "study_id": "singh2023_bbv154",
+      "citation": "Singh C, Verma S, Reddy P, et al. Phase III Pivotal comparative clinical trial of intranasal (iNCOVACC) and intramuscular COVID 19 vaccine (Covaxin). npj Vaccines. 2023.",
+      "year": 2023,
+      "doi": "10.1038/s41541-023-00717-8",
+      "nct": "NCT05522335",
+      "url": "https://www.nature.com/articles/s41541-023-00717-8",
+      "pathogen": "SARS-CoV-2",
+      "vaccines": [
+        {
+          "name": "BBV154 (iNCOVACC)",
+          "pathogen": "SARS-CoV-2",
+          "platform": "adenovirus_vector",
+          "route": "intranasal"
+        },
+        {
+          "name": "Covaxin",
+          "pathogen": "SARS-CoV-2",
+          "platform": "inactivated",
+          "route": "intramuscular"
+        }
+      ],
+      "population": "healthy adults (many with prior infection)",
+      "n_participants": 3160,
+      "sampling_methods": [
+        "saliva",
+        "serum",
+        "pbmc"
+      ],
+      "compartments": [
+        "oral",
+        "serum",
+        "blood_cells"
+      ],
+      "timepoints_days": [
+        0,
+        28,
+        42
+      ],
+      "assays": [
+        "neutralization",
+        "elispot"
+      ],
+      "abstract": "One of the most preferable characteristics for a COVID-19 vaccine candidate is the ability to reduce transmission and infection of SARS-CoV-2, in addition to disease prevention. Unlike intramuscular vaccines, intranasal COVID-19 vaccines may offer this by generating mucosal immunity. In this open-label, randomised, multicentre, phase 3 clinical trial (CTRI/2022/02/40065; ClinicalTrials.gov: NCT05522335), healthy adults were randomised to receive two doses, 28 days apart, of either intranasal adenoviral vectored SARS-CoV-2 vaccine (BBV154) or licensed intramuscular vaccine, Covaxin. Between April 16 and June 4, 2022, we enrolled 3160 subjects of whom, 2971 received 2 doses of BBV154 and 161 received Covaxin. On Day 42, 14 days after the second dose, BBV154 induced significant serum neutralization antibody titers against the ancestral (Wuhan) virus, which met the pre-defined superiority criterion for BBV154 over Covaxin. Further, both vaccines showed cross protection against Omicron BA.5 variant. Salivary IgA titers were found to be higher in BBV154. In addition, extensive evaluation of T cell immunity revealed comparable responses in both cohorts due to prior infection. However, BBV154 showed significantly more ancestral specific IgA-secreting plasmablasts, post vaccination, whereas Covaxin recipients showed significant Omicron specific IgA-secreting plasmablasts only at day 42. Both vaccines were well tolerated. Overall reported solicited reactions were 6.9% and 25.5% and unsolicited reactions were 1.2% and 3.1% in BBV154 and Covaxin participants respectively.",
+      "findings": [
+        {
+          "finding_id": "singh2023_f1",
+          "statement": "Two-dose schedule 28 days apart, primary immunogenicity read-out 14 days after dose 2 (day 42).",
+          "quote": "On Day 42, 14 days after the second dose, BBV154 induced significant serum neutralization antibody titers",
+          "tags": [
+            "timepoints",
+            "post_boost",
+            "dose_schedule",
+            "systemic"
+          ]
+        },
+        {
+          "finding_id": "singh2023_f2",
+          "statement": "Saliva was used as a mucosal readout; salivary IgA was higher after intranasal than intramuscular vaccine.",
+          "quote": "Salivary IgA titers were found to be higher in BBV154.",
+          "tags": [
+            "saliva",
+            "mucosal_endpoint",
+            "route",
+            "sampling_method"
+          ]
+        },
+        {
+          "finding_id": "singh2023_f3",
+          "statement": "Prior infection can mask differences between arms (T-cell responses comparable): prior immunity must be measured.",
+          "quote": "extensive evaluation of T cell immunity revealed comparable responses in both cohorts due to prior infection.",
+          "tags": [
+            "prior_immunity",
+            "baseline",
+            "confounding"
+          ]
+        },
+        {
+          "finding_id": "singh2023_f4",
+          "statement": "IgA-secreting plasmablasts in blood (ELISpot) are a usable cellular marker of mucosal priming.",
+          "quote": "BBV154 showed significantly more ancestral specific IgA-secreting plasmablasts, post vaccination",
+          "tags": [
+            "cellular",
+            "elispot",
+            "mucosal_endpoint"
+          ]
+        }
+      ],
+      "not_reported": [
+        "nasal sampling (only saliva reported in abstract)",
+        "kinetics beyond day 42 (in abstract)"
+      ],
+      "level": "verified_abstract"
+    },
+    {
+      "study_id": "sheikhmohamed2022_mrna_saliva",
+      "citation": "Sheikh-Mohamed S, Isho B, Chao GYC, et al. Systemic and mucosal IgA responses are variably induced in response to SARS-CoV-2 mRNA vaccination and are associated with protection against subsequent infection. Mucosal Immunology. 2022.",
+      "year": 2022,
+      "doi": "10.1038/s41385-022-00511-0",
+      "url": "https://www.nature.com/articles/s41385-022-00511-0",
+      "pathogen": "SARS-CoV-2",
+      "vaccines": [
+        {
+          "name": "mRNA COVID-19 vaccines",
+          "pathogen": "SARS-CoV-2",
+          "platform": "mrna",
+          "route": "intramuscular"
+        }
+      ],
+      "population": "adults receiving two doses of mRNA vaccine",
+      "sampling_methods": [
+        "saliva",
+        "serum"
+      ],
+      "compartments": [
+        "oral",
+        "serum"
+      ],
+      "timepoints_days": [],
+      "assays": [
+        "elisa_binding"
+      ],
+      "abstract": "Although SARS-CoV-2 infects the upper respiratory tract, we know little about the amount, type, and kinetics of antibodies (Ab) generated in the oral cavity in response to COVID-19 vaccination. We collected serum and saliva samples from participants receiving two doses of mRNA COVID-19 vaccines and measured the level of anti-SARS-CoV-2 Ab. We detected anti-Spike and anti-Receptor Binding Domain (RBD) IgG and IgA, as well as anti-Spike/RBD associated secretory component in the saliva of most participants after dose 1. Administration of a second dose of mRNA boosted the IgG but not the IgA response, with only 30% of participants remaining positive for IgA at this timepoint. At 6 months post-dose 2, these participants exhibited diminished anti-Spike/RBD IgG levels, although secretory component-associated anti-Spike Ab were more stable. Examining two prospective cohorts we found that participants who experienced breakthrough infections with SARS-CoV-2 variants had lower levels of vaccine-induced serum anti-Spike/RBD IgA at 2-4 weeks post-dose 2 compared to participants who did not experience an infection, whereas IgG levels were comparable between groups. These data suggest that COVID-19 vaccines that elicit a durable IgA response may have utility in preventing infection.",
+      "findings": [
+        {
+          "finding_id": "sheikhmohamed2022_f1",
+          "statement": "Mucosal IgA after an intramuscular vaccine is transient and inconsistent: positivity must be tracked per timepoint.",
+          "quote": "Administration of a second dose of mRNA boosted the IgG but not the IgA response, with only 30% of participants remaining positive for IgA at this timepoint.",
+          "tags": [
+            "responder_rate",
+            "intramuscular",
+            "saliva",
+            "kinetics"
+          ]
+        },
+        {
+          "finding_id": "sheikhmohamed2022_f2",
+          "statement": "Durability differs by antibody type: a ~6-month timepoint reveals it (IgG waned, secretory-component-associated Ab more stable).",
+          "quote": "At 6 months post-dose 2, these participants exhibited diminished anti-Spike/RBD IgG levels, although secretory component-associated anti-Spike Ab were more stable.",
+          "tags": [
+            "durability",
+            "timepoints",
+            "sIgA",
+            "kinetics"
+          ]
+        },
+        {
+          "finding_id": "sheikhmohamed2022_f3",
+          "statement": "Detecting secretory component distinguishes secretory IgA from serum-derived IgA in mucosal fluids.",
+          "quote": "anti-Spike/RBD associated secretory component in the saliva of most participants after dose 1",
+          "tags": [
+            "sIgA",
+            "assay",
+            "isotype"
+          ]
+        },
+        {
+          "finding_id": "sheikhmohamed2022_f4",
+          "statement": "IgA level 2-4 weeks after dose 2 was associated with protection from breakthrough infection, IgG was not discriminating.",
+          "quote": "participants who experienced breakthrough infections with SARS-CoV-2 variants had lower levels of vaccine-induced serum anti-Spike/RBD IgA at 2-4 weeks post-dose 2",
+          "tags": [
+            "correlate_of_protection",
+            "post_boost",
+            "timepoints"
+          ]
+        }
+      ],
+      "not_reported": [
+        "nasal sampling (saliva only)",
+        "exact sampling days (in abstract)"
+      ],
+      "level": "verified_abstract"
+    },
+    {
+      "study_id": "tsunetsugu2022_saliva_flu",
+      "citation": "Tsunetsugu-Yokota Y, Ito S, Adachi Y, et al. Saliva as a useful tool for evaluating upper mucosal antibody response to influenza. PLOS ONE. 2022.",
+      "year": 2022,
+      "doi": "10.1371/journal.pone.0263419",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0263419",
+      "pathogen": "influenza",
+      "vaccines": [
+        {
+          "name": "parenteral inactivated influenza vaccine",
+          "pathogen": "influenza",
+          "platform": "inactivated",
+          "route": "intramuscular"
+        }
+      ],
+      "population": "7 individuals infected with A(H1N1)pdm09 + vaccinated individuals",
+      "n_participants": 7,
+      "sampling_methods": [
+        "saliva",
+        "serum"
+      ],
+      "compartments": [
+        "oral",
+        "serum"
+      ],
+      "timepoints_days": [
+        6,
+        10,
+        21,
+        35
+      ],
+      "assays": [
+        "elisa_binding"
+      ],
+      "abstract": "Mucosal immunity plays a crucial role in controlling upper respiratory infections, including influenza. We established a quantitative ELISA to measure the amount of influenza virus-specific salivery IgA (sIgA) and salivary IgG (sIgG) antibodies using a standard antibody broadly reactive to the influenza A virus. We then analyzed saliva and serum samples from seven individuals infected with the A(H1N1)pdm09 influenza virus during the 2019-2020 flu seasons. We detected an early (6-10 days post-infection) increase of sIgA in five of the seven samples and a later (3-5 weeks) increase of sIgG in six of the seven saliva samples. Although the conventional parenteral influenza vaccine did not induce IgA production in saliva, vaccinated individuals with a history of influenza infection had higher basal levels of sIgA than those without a history. Interestingly, we observed sIgA and sIgG in an asymptomatic individual who had close contact with two influenza cases. Both early mucosal sIgA secretion and late systemically induced sIgG in the mucosal surface may protect against virus infection. Despite the small sample size, our results indicate that the saliva test system can be useful for analyzing upper mucosal immunity in influenza.",
+      "findings": [
+        {
+          "finding_id": "tsunetsugu2022_f1",
+          "statement": "Mucosal IgA rises early (days 6-10) while IgG in mucosal fluid rises later (weeks 3-5): sample early AND later.",
+          "quote": "We detected an early (6-10 days post-infection) increase of sIgA in five of the seven samples and a later (3-5 weeks) increase of sIgG in six of the seven saliva samples.",
+          "tags": [
+            "kinetics",
+            "timepoints",
+            "early_sampling",
+            "peak"
+          ]
+        },
+        {
+          "finding_id": "tsunetsugu2022_f2",
+          "statement": "A parenteral (injected) influenza vaccine did not induce salivary IgA.",
+          "quote": "the conventional parenteral influenza vaccine did not induce IgA production in saliva",
+          "tags": [
+            "intramuscular",
+            "saliva",
+            "comparator",
+            "mucosal_endpoint"
+          ]
+        },
+        {
+          "finding_id": "tsunetsugu2022_f3",
+          "statement": "Prior infection raises baseline mucosal IgA: stratify or adjust on infection history.",
+          "quote": "vaccinated individuals with a history of influenza infection had higher basal levels of sIgA than those without a history.",
+          "tags": [
+            "prior_immunity",
+            "baseline",
+            "confounding"
+          ]
+        },
+        {
+          "finding_id": "tsunetsugu2022_f4",
+          "statement": "Quantitative saliva ELISA calibrated with a standard antibody makes values quantitative rather than arbitrary.",
+          "quote": "We established a quantitative ELISA to measure the amount of influenza virus-specific salivery IgA (sIgA) and salivary IgG (sIgG) antibodies using a standard antibody broadly reactive to the influenza A virus.",
+          "tags": [
+            "assay",
+            "standardization",
+            "units",
+            "saliva"
+          ]
+        }
+      ],
+      "not_reported": [
+        "post-vaccination kinetics of the vaccinated group (in abstract)"
+      ],
+      "level": "verified_abstract"
+    },
+    {
+      "study_id": "barria2013_laiv_adults",
+      "citation": "Barria MI, et al. Localized mucosal response to intranasal live attenuated influenza vaccine in adults. J Infect Dis. 2013.",
+      "year": 2013,
+      "pmid": "23087433",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23087433/",
+      "pathogen": "influenza",
+      "vaccines": [
+        {
+          "name": "LAIV",
+          "pathogen": "influenza",
+          "platform": "live_attenuated",
+          "route": "intranasal"
+        }
+      ],
+      "population": "adults",
+      "abstract": "",
+      "findings": [],
+      "not_reported": [
+        "abstract not retrieved yet"
+      ],
+      "level": "to_verify"
+    },
+    {
+      "study_id": "belshe2000_laiv_correlates",
+      "citation": "Belshe RB, et al. Correlates of immune protection induced by live, attenuated, cold-adapted, trivalent, intranasal influenza virus vaccine. J Infect Dis. 2000.",
+      "year": 2000,
+      "pmid": "10720541",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10720541/",
+      "pathogen": "influenza",
+      "vaccines": [
+        {
+          "name": "CAIV-T (LAIV)",
+          "pathogen": "influenza",
+          "platform": "live_attenuated",
+          "route": "intranasal"
+        }
+      ],
+      "population": "children",
+      "abstract": "",
+      "findings": [],
+      "not_reported": [
+        "abstract not retrieved yet"
+      ],
+      "level": "to_verify"
+    },
+    {
+      "study_id": "thwaites2017_nasosorption",
+      "citation": "Thwaites RS, et al. Nasosorption as a Minimally Invasive Sampling Procedure: Mucosal Viral Load and Inflammation in Primary RSV Bronchiolitis. J Infect Dis. 2017.",
+      "year": 2017,
+      "pmid": "28368490",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28368490",
+      "pathogen": "RSV",
+      "population": "not reported (to verify)",
+      "abstract": "",
+      "findings": [],
+      "not_reported": [
+        "abstract not retrieved yet"
+      ],
+      "level": "to_verify"
+    },
+    {
+      "study_id": "m2sr2024_adults",
+      "citation": "Intranasal M2SR (M2-Deficient Single Replication) Influenza Vaccine Induces Broadly Reactive Mucosal Antibody Production in Adults. 2024.",
+      "year": 2024,
+      "pmid": "39012796",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39012796",
+      "pathogen": "influenza",
+      "vaccines": [
+        {
+          "name": "M2SR",
+          "pathogen": "influenza",
+          "platform": "live_attenuated",
+          "route": "intranasal"
+        }
+      ],
+      "population": "adults",
+      "abstract": "",
+      "findings": [],
+      "not_reported": [
+        "abstract not retrieved yet"
+      ],
+      "level": "to_verify"
+    },
+    {
+      "study_id": "rosenheim2026_workshop",
+      "citation": "Rosenheim J, Bender B, Gilmour J, et al. Conference report: airway mucosal sampling and immune analysis. Vaccine. 2026;88:128944.",
+      "year": 2026,
+      "doi": "10.1016/j.vaccine.2026.128944",
+      "url": "https://doi.org/10.1016/j.vaccine.2026.128944",
+      "pathogen": "respiratory pathogens (multiple)",
+      "vaccines": [],
+      "population": "workshop of 35 academics, clinicians and funders (not a clinical study)",
+      "sampling_methods": [
+        "nasal_wash",
+        "nasal_swab",
+        "nasopharyngeal_swab",
+        "nasosorption",
+        "saliva",
+        "serum",
+        "pbmc"
+      ],
+      "compartments": [
+        "nasal",
+        "oral",
+        "serum",
+        "blood_cells"
+      ],
+      "timepoints_days": [],
+      "assays": [
+        "elisa_binding",
+        "multiplex_binding",
+        "neutralization",
+        "hai",
+        "elispot",
+        "flow_cytometry"
+      ],
+      "abstract": "Respiratory pathogens cause substantial global morbidity, mortality, and pandemic risk. While parenteral vaccines can effectively reduce severe disease for some respiratory infections, they are often less effective at preventing infection and onward transmission. Vaccines delivered directly to the airways have the potential to induce protective mucosal immunity at the site of pathogen entry. However, progress in mucosal vaccine development has been constrained by limited understanding of airway immune mechanisms, the technical challenges of sampling respiratory tissues, and the lack of standardised, validated immunological assays capable of defining mucosal correlates of protection. To address these challenges, the Novo Nordisk Foundation and Wellcome Trust convened a workshop on airway mucosal sampling and immunological assays, bringing together researchers, clinicians, funders, and representatives from major research consortia. Participants reviewed approaches to sampling the upper and lower respiratory tract, assay technologies, and regulatory considerations for integrating mucosal endpoints into vaccine development. Discussions highlighted major barriers including variability in sampling techniques, low and inconsistent cell yields, limited assay standardisation, and insufficient cross-study comparability. The workshop produced a set of recommendations in four priority areas (i.e., Collaboration, Communication, Consistency and Conduct of research) to share knowledge, accelerate standardisation and validation, and generate evidence supporting mucosal vaccine development. Together, these advances will help strengthen the scientific and regulatory foundations needed to realize the full potential of airway-delivered vaccines for the prevention of respiratory diseases.",
+      "full_text_excerpts": "Standardisation and normalisation are urgently needed to address variation in mucosal sampling approaches, which undermines reproducibility, scalability, and cross-trial comparisons.\n\nProtective immunity can be highly compartmentalised, necessitating direct sampling of the respiratory tract. More accessible respiratory tissues may not always be most relevant for protection; blood-based measurements alone fail to capture protective immunity.\n\nThere are currently no validated mucosal CoPs used for vaccine licensure globally.\n\nValidated assays using systemic markers fail to capture certain features of mucosal immunity.\n\nFurther, Tissue Resident Memory T-cells (TRM) do not typically circulate back in blood, so cannot be measured there. Consequently, reliance solely on blood samples risks overlooking central aspects of protective airway immunity.\n\nSerum IgG titres correlated with protection against infection only through the correlation with nasal IgA, supporting mucosal vaccine strategies and indicating that reliance on serum antibody in vaccine trials may be inefficient at predicting protective immunity.\n\nFreezing reduces cell viability and yield, and assay sensitivity, and may bias the cell types recovered such as a reduction in activated T cells, neutrophils or other sensitive granulocytes.\n\nFixation of samples can alleviate logistic challenges and minimise technical variation, but can fundamentally alter protein structures, impact assay results and preclude the use of functional assays.\n\nHowever, there was broad concurrence that variation in techniques and platforms may present a challenge for cross-trial comparison and reproducibility of findings.\n\nIt was agreed that a shared set of core mucosal sampling procedures, which groups could use as a resource to quickly implement in their own research, is an essential first step towards a standardised sampling framework that facilitates cross-trial comparisons.\n\nParticipants noted that many airway samples do not target the most relevant tissue, despite being proximal to the site of disease.\n\nTier 1 assays constitute fully qualified or validated assays suitable for product development and meeting regulatory and clinical trial endpoint requirements.\n\nA presentation on regulatory considerations and assay development to support product development highlighted the persistent preference for serum assays, despite the limitations of directly measuring CoPs of mucosal immunity.\n\nUntil there are standardised and validated mucosal assays, we remain reliant on measurements made in peripheral blood.\n\nMucosal assay development would benefit from a central repository for protocols and reagents to share insights, such as the inherent variability and mitigation strategies, in addition to potential confounders.\n\nIn contrast, VAXXAIR, GERMINATE, and NextGen trials are using URT samples for broader characterisation of the cellular post-vaccine response throughout the respiratory tract, including the use of high-dimensional assays (e.g., spectral flow cytometry, single-cell RNA-sequencing).\n\nIt's worth noting that in IgA-deficient individuals most cases are not associated with illness, suggesting compensatory immune responses. This may indicate that mucosal IgA is optimal but not universally essential, a distinction with direct implications for CoP selection and assay prioritisation.",
+      "findings": [
+        {
+          "finding_id": "rosenheim2026_f01",
+          "statement": "Insufficient cross-study comparability is one of the field's named barriers to mucosal vaccine development.",
+          "quote": "major barriers including variability in sampling techniques, low and inconsistent cell yields, limited assay standardisation, and insufficient cross-study comparability",
+          "tags": [
+            "comparability",
+            "standardization",
+            "cross_trial",
+            "field_consensus"
+          ],
+          "level": "verified_fulltext"
+        },
+        {
+          "finding_id": "rosenheim2026_f02",
+          "statement": "Standardisation and normalisation are urgently needed; variation in mucosal sampling undermines cross-trial comparison.",
+          "quote": "Standardisation and normalisation are urgently needed to address variation in mucosal sampling approaches, which undermines reproducibility, scalability, and cross-trial comparisons.",
+          "tags": [
+            "normalization",
+            "sampling_method",
+            "comparability",
+            "cross_trial"
+          ],
+          "level": "verified_fulltext"
+        },
+        {
+          "finding_id": "rosenheim2026_f03",
+          "statement": "Blood-based measurements alone fail to capture protective immunity; direct airway sampling is necessary.",
+          "quote": "blood-based measurements alone fail to capture protective immunity",
+          "tags": [
+            "compartmentalization",
+            "mucosal_vs_systemic",
+            "endpoint_choice"
+          ],
+          "level": "verified_fulltext"
+        },
+        {
+          "finding_id": "rosenheim2026_f04",
+          "statement": "No validated mucosal correlate of protection is used for vaccine licensure anywhere.",
+          "quote": "There are currently no validated mucosal CoPs used for vaccine licensure globally.",
+          "tags": [
+            "correlate_of_protection",
+            "uncertainty",
+            "regulatory"
+          ],
+          "level": "verified_fulltext"
+        },
+        {
+          "finding_id": "rosenheim2026_f05",
+          "statement": "Tissue-resident memory T cells do not circulate, so blood cannot measure them.",
+          "quote": "Tissue Resident Memory T-cells (TRM) do not typically circulate back in blood, so cannot be measured there",
+          "tags": [
+            "compartmentalization",
+            "cellular",
+            "endpoint_choice"
+          ],
+          "level": "verified_fulltext"
+        },
+        {
+          "finding_id": "rosenheim2026_f06",
+          "statement": "Serum IgG predicted protection only through its correlation with nasal IgA; serum alone is an inefficient predictor.",
+          "quote": "Serum IgG titres correlated with protection against infection only through the correlation with nasal IgA, supporting mucosal vaccine strategies and indicating that reliance on serum antibody in vaccine trials may be inefficient at predicting protective immunity.",
+          "tags": [
+            "correlate_of_protection",
+            "mucosal_vs_systemic",
+            "endpoint_choice",
+            "systemic"
+          ],
+          "level": "verified_fulltext"
+        },
+        {
+          "finding_id": "rosenheim2026_f07",
+          "statement": "Cryopreservation reduces yield and assay sensitivity and biases which cell types are recovered.",
+          "quote": "Freezing reduces cell viability and yield, and assay sensitivity, and may bias the cell types recovered",
+          "tags": [
+            "sample_state",
+            "comparability",
+            "assay"
+          ],
+          "level": "verified_fulltext"
+        },
+        {
+          "finding_id": "rosenheim2026_f08",
+          "statement": "Fixation alters protein structures, changes assay results and rules out functional assays.",
+          "quote": "can fundamentally alter protein structures, impact assay results and preclude the use of functional assays",
+          "tags": [
+            "sample_state",
+            "comparability",
+            "assay"
+          ],
+          "level": "verified_fulltext"
+        },
+        {
+          "finding_id": "rosenheim2026_f09",
+          "statement": "Variation in techniques and platforms challenges cross-trial comparison and reproducibility.",
+          "quote": "variation in techniques and platforms may present a challenge for cross-trial comparison and reproducibility of findings",
+          "tags": [
+            "comparability",
+            "cross_trial",
+            "platform"
+          ],
+          "level": "verified_fulltext"
+        },
+        {
+          "finding_id": "rosenheim2026_f10",
+          "statement": "A shared set of core sampling procedures is the agreed first step towards cross-trial comparability.",
+          "quote": "is an essential first step towards a standardised sampling framework that facilitates cross-trial comparisons",
+          "tags": [
+            "standardization",
+            "sampling_method",
+            "cross_trial",
+            "recommendation"
+          ],
+          "level": "verified_fulltext"
+        },
+        {
+          "finding_id": "rosenheim2026_f11",
+          "statement": "Many airway samples do not target the tissue most relevant to protection.",
+          "quote": "many airway samples do not target the most relevant tissue, despite being proximal to the site of disease",
+          "tags": [
+            "sampling_method",
+            "compartmentalization",
+            "endpoint_choice"
+          ],
+          "level": "verified_fulltext"
+        },
+        {
+          "finding_id": "rosenheim2026_f12",
+          "statement": "Tier 1 assays are fully qualified or validated and suitable for regulatory and trial endpoint requirements.",
+          "quote": "Tier 1 assays constitute fully qualified or validated assays suitable for product development and meeting regulatory and clinical trial endpoint requirements.",
+          "tags": [
+            "assay_tier",
+            "regulatory",
+            "assay"
+          ],
+          "level": "verified_fulltext"
+        },
+        {
+          "finding_id": "rosenheim2026_f13",
+          "statement": "Regulators persistently prefer serum assays despite the limits of measuring mucosal correlates directly.",
+          "quote": "highlighted the persistent preference for serum assays, despite the limitations of directly measuring CoPs of mucosal immunity",
+          "tags": [
+            "regulatory",
+            "systemic",
+            "endpoint_choice"
+          ],
+          "level": "verified_fulltext"
+        },
+        {
+          "finding_id": "rosenheim2026_f14",
+          "statement": "Without standardised and validated mucosal assays, the field stays reliant on peripheral blood.",
+          "quote": "Until there are standardised and validated mucosal assays, we remain reliant on measurements made in peripheral blood.",
+          "tags": [
+            "regulatory",
+            "standardization",
+            "systemic"
+          ],
+          "level": "verified_fulltext"
+        },
+        {
+          "finding_id": "rosenheim2026_f15",
+          "statement": "A central repository of protocols should share known variability, mitigations and confounders.",
+          "quote": "a central repository for protocols and reagents to share insights, such as the inherent variability and mitigation strategies, in addition to potential confounders",
+          "tags": [
+            "recommendation",
+            "standardization",
+            "communication"
+          ],
+          "level": "verified_fulltext"
+        },
+        {
+          "finding_id": "rosenheim2026_f16",
+          "statement": "Mucosal IgA may be optimal but not universally essential, which bears directly on correlate selection.",
+          "quote": "This may indicate that mucosal IgA is optimal but not universally essential, a distinction with direct implications for CoP selection and assay prioritisation.",
+          "tags": [
+            "correlate_of_protection",
+            "uncertainty",
+            "endpoint_choice"
+          ],
+          "level": "verified_fulltext"
+        }
+      ],
+      "not_reported": [
+        "individual-level data (this is a consensus report, not a study)",
+        "quantitative assay performance figures",
+        "lower-airway sampling methods are discussed but not enumerated in the controlled vocabulary used here"
+      ],
+      "level": "verified_fulltext"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+.git
+.github
+outputs
+**/__pycache__
+**/*.pyc
+data/raw
+data/evidence/.embed_cache.json
+data/incoming/*.csv
+*.zip

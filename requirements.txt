@@ -1,0 +1,14 @@
+# Core — everything in objectives 1-6 runs with these
+pydantic>=2.6
+pandas>=2.1
+numpy>=1.26
+scipy>=1.11
+networkx>=3.2
+plotly>=5.20
+streamlit>=1.33
+
+# Optional
+pymupdf>=1.24      # read PDFs, pull figures out of them
+langgraph>=0.2     # alternative agent runtime (a built-in executor works without it)
+mcp>=1.2           # expose the engines as MCP tools
+pytest>=8.0        # tests

@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mucosal-vaccine-copilot"
+version = "0.1.0"
+description = "Transparent, evidence-traced design support for mucosal vaccine trials (public + synthetic data only)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "pydantic>=2.6",
+    "pandas>=2.1",
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "networkx>=3.2",
+    "plotly>=5.20",
+]
+
+[project.optional-dependencies]
+app = ["streamlit>=1.33"]
+pdf = ["pymupdf>=1.24"]
+agent = ["langgraph>=0.2"]
+mcp = ["mcp>=1.2"]
+dev = ["pytest>=8.0"]
+all = ["streamlit>=1.33", "pymupdf>=1.24", "langgraph>=0.2", "mcp>=1.2", "pytest>=8.0"]
+
+[project.scripts]
+mvc = "mvc.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["B008", "E501"]

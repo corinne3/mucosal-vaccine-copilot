@@ -1,0 +1,66 @@
+MUCOSAL VACCINE COPILOT — how to run it
+=======================================
+
+You do not need Python, and you do not need to know any of this project's
+code. You need Docker Desktop, which is free.
+
+
+STEP 1 — install Docker Desktop (once)
+--------------------------------------
+  https://www.docker.com/products/docker-desktop/
+Install it, start it, and wait until its whale icon stops animating.
+
+
+STEP 2 — start the app
+----------------------
+Open PowerShell IN THIS FOLDER (right-click the folder while holding Shift ->
+"Open PowerShell window here"), then type:
+
+    docker compose up
+
+The first run downloads and builds; it takes a few minutes and prints a lot of
+text. That is normal. When it settles, you will see a line containing
+
+    You can now view your Streamlit app in your browser.
+
+
+STEP 3 — open it
+----------------
+In any browser:
+
+    http://localhost:8501
+
+
+TO STOP IT
+----------
+Press Ctrl-C in the PowerShell window, then:
+
+    docker compose down
+
+
+TO USE YOUR OWN DATA
+--------------------
+Put your CSV file in the  data\incoming  folder next to this file. The folder's
+own README lists the columns. Your file is mounted read-only: the app can read
+it, it can never change or delete it.
+
+
+WHAT THIS APP IS, AND IS NOT
+----------------------------
+It decides whether two antibody measurements may be compared, and it refuses to
+plot on one axis any two series that may not be. It produces candidate options
+for review by qualified domain experts.
+
+It is NOT clinical advice, NOT a trial protocol, and NOT a medical device.
+It contains no patient data and no confidential material. The measurement data
+it ships with is synthetic; the published study data it cites is public.
+
+
+IF IT DOES NOT START
+--------------------
+  "docker: command not found"   -> Docker Desktop is not installed, or not started.
+  "port is already allocated"   -> something else uses port 8501. Open
+                                   docker-compose.yml and change the FIRST number
+                                   of "8501:8501" to 8601, then use
+                                   http://localhost:8601
+  anything else                 -> run  docker compose logs  and send the output.

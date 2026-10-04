@@ -1,0 +1,24 @@
+# Start the app:   docker compose up
+# Then open:       http://localhost:8501
+# Stop it:         Ctrl-C, then  docker compose down
+
+services:
+  copilot:
+    build: .
+    image: mucosal-vaccine-copilot:0.1.0
+    ports:
+      - "8501:8501"
+    environment:
+      # The container talks to an Ollama running on the HOST, if there is one.
+      # If there is not, every feature falls back to its rule-based path and the
+      # sidebar says so, per role. Nothing breaks.
+      OLLAMA_HOST: "http://host.docker.internal:11434"
+    extra_hosts:
+      # Linux hosts do not define host.docker.internal; this adds it so the same
+      # compose file works on Windows, macOS and Linux without editing.
+      - "host.docker.internal:host-gateway"
+    volumes:
+      # Drop a CSV in ./data/incoming on the host and it appears inside the app.
+      # Read-only: the container can never write to the host's files.
+      - ./data/incoming:/app/data/incoming:ro
+    restart: unless-stopped

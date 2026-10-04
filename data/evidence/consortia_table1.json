@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "description": "Table 1 of the 2026 mucosal-immunity workshop report, transcribed cell by cell. Six consortia presented their sampling methods, assays and platforms. This is the project's only non-synthetic measurement data: it describes how real ongoing trials measure, not what they measured. Every list below is verbatim from the table; the `mapped` fields are this project's interpretation and are marked as such.",
+  "source": {
+    "study_id": "rosenheim2026_workshop",
+    "table": "Table 1",
+    "caption": "Sampling and Assays in Consortium Trials Presented at Workshop.",
+    "licence": "CC BY",
+    "transcribed_by": "hand, from the PDF supplied by Lovaltech",
+    "columns": [
+      "Consortium / trial", "Study design", "Upper airway sampling methods",
+      "Lower airway sampling methods", "Immunological assays on airway samples",
+      "Platforms", "Objectives"
+    ]
+  },
+  "consortia": [
+    {
+      "name": "COMMUNITY",
+      "registration": "NCT06784739",
+      "study_design": "Observational HCW cohort",
+      "upper_airway_verbatim": ["Saliva", "Nasal swabs", "Nasosorption"],
+      "lower_airway_verbatim": ["PExA", "Bronchoscopy (BAL)"],
+      "assays_verbatim": [
+        "Viral PCR",
+        "Mucosal antibody titres and viral neutralisation assays"
+      ],
+      "platforms_verbatim": [
+        "MSD",
+        "Adult stem cell derived nasal and lung epithelial organoids"
+      ],
+      "objectives_verbatim": [
+        "CoPs to infection",
+        "Humoral response to seasonal respiratory viral infections (influenza, RSV, SARS-CoV-2).",
+        "Compare antibody titres in URT against LRT.",
+        "Viral load trajectories",
+        "Explore IgA transcytosis across the epithelium"
+      ]
+    },
+    {
+      "name": "GERMINATE",
+      "registration": "NCT06620185",
+      "study_design": "Non-randomised, open-label experimental medicine study of IN LAIV or challenge with IN GMP influenza A/Belgium/4217/2015 (H3N2)",
+      "upper_airway_verbatim": [
+        "Nasosorption", "Nasal swabs", "NALT biopsy (subset)",
+        "Environmental sampling (viral emission)"
+      ],
+      "lower_airway_verbatim": ["Bronchoscopy (subset)"],
+      "assays_verbatim": [
+        "Flow cytometry and single-cell RNA-sequencing for cellular response",
+        "Humoral response (IgG/IgA titres)",
+        "Antibody HAI assay"
+      ],
+      "platforms_verbatim": ["MSD", "(spectral) flow cytometry"],
+      "objectives_verbatim": [
+        "Compare immune response against influenza infection to nasal spray LAIV"
+      ]
+    },
+    {
+      "name": "MOVE",
+      "registration": null,
+      "study_design": "IN LAIV in children and adults",
+      "upper_airway_verbatim": ["Nasosorption", "Nasal mid-turbinate swabs"],
+      "lower_airway_verbatim": [],
+      "assays_verbatim": [
+        "Antigen binding and viral neutralisation by mucosal antibodies"
+      ],
+      "platforms_verbatim": ["MSD", "Luminex", "(spectral) flow cytometry"],
+      "objectives_verbatim": [
+        "Mucosal sampling and assay standardisation.",
+        "Identify candidate LAIV CoP"
+      ]
+    },
+    {
+      "name": "MUSICC",
+      "registration": null,
+      "study_design": "beta-CoV CHIM study (including SARS-CoV-2 & OC43)",
+      "upper_airway_verbatim": [
+        "Nasosorption", "Nasal mid-turbinate swabs", "Environmental sampling"
+      ],
+      "lower_airway_verbatim": [],
+      "assays_verbatim": ["Antibody affinity and neutralisation assays"],
+      "platforms_verbatim": ["MSD", "Luminex", "(spectral) flow cytometry"],
+      "objectives_verbatim": [
+        "GCLP-level antibody assays from blood and mucosa"
+      ]
+    },
+    {
+      "name": "Project NextGen",
+      "registration": null,
+      "study_design": "Mucosal immune profiling post-vaccination",
+      "upper_airway_verbatim": ["Saliva", "Nasosorption", "Nasal mid-turbinate swabs"],
+      "lower_airway_verbatim": [],
+      "assays_verbatim": [
+        "Humoral response (IgG/IgA titres)",
+        "Fc Receptor Characterisation",
+        "Cytokine profiling",
+        "Single-cell RNA-sequencing"
+      ],
+      "platforms_verbatim": ["MSD"],
+      "objectives_verbatim": [
+        "CoPs to infection",
+        "Mucosal sampling and assay standardisation",
+        "Immunological diversity in the upper airways",
+        "Data integration across vaccine trials"
+      ]
+    },
+    {
+      "name": "VAXXAIR",
+      "registration": "NCT05921448",
+      "study_design": "Randomised, double-blind, placebo-controlled study of IM inactivated influenza vaccine (IIV) vs. IN LAIV",
+      "upper_airway_verbatim": ["Nasosorption", "Nasal swabs", "Tonsils"],
+      "lower_airway_verbatim": [
+        "Bronchoscopy (BAL, bronchial brushing, forcep biopsies, bronchosorption, EBUS-guided lymph node FNA)"
+      ],
+      "assays_verbatim": [
+        "Flow cytometry and single-cell RNA-sequencing for cellular response comparing airway cells with PBMCs.",
+        "Humoral response (IgG/IgA titers) and antibody HAI assay"
+      ],
+      "platforms_verbatim": ["MSD", "(spectral) flow cytometry"],
+      "objectives_verbatim": [
+        "Multifaceted characterisation of temporal mucosal immune response to LAIV vs IIV in adults.",
+        "Establish phase I clinical trial unit with pulmonary sampling expertise"
+      ]
+    }
+  ],
+  "method_mapping": {
+    "_comment": "Verbatim cell text -> this project's SamplingMethod. Entries mapping to null are sampling the project's antibody-comparability model does not represent, and the reason is recorded rather than silently dropped.",
+    "Saliva": "saliva",
+    "Nasal swabs": "nasal_swab",
+    "Nasal mid-turbinate swabs": "nasal_mid_turbinate_swab",
+    "Nasosorption": "nasosorption",
+    "NALT biopsy (subset)": "nalt_biopsy",
+    "Tonsils": "tonsil",
+    "PExA": "pexa",
+    "Bronchoscopy (BAL)": "bal",
+    "Bronchoscopy (subset)": "bal",
+    "Bronchoscopy (BAL, bronchial brushing, forcep biopsies, bronchosorption, EBUS-guided lymph node FNA)": "bal",
+    "Environmental sampling (viral emission)": null,
+    "Environmental sampling": null
+  },
+  "method_mapping_notes": {
+    "Environmental sampling (viral emission)": "Samples the air, not the participant. It carries no immune measurement, so it has no measurement context.",
+    "Environmental sampling": "Samples the air, not the participant. It carries no immune measurement, so it has no measurement context.",
+    "Bronchoscopy (BAL, bronchial brushing, forcep biopsies, bronchosorption, EBUS-guided lymph node FNA)": "One cell lists five distinct procedures with different dilution behaviour. Only BAL is modelled; the others are recorded as unmodelled so the loss is visible."
+  },
+  "assay_mapping": {
+    "_comment": "Verbatim assay text -> this project's AssayType, plus the antibody isotype the cell names. null means the assay measures something other than an antibody quantity (cells, transcripts, virus) and therefore falls outside a comparability engine for antibody measurements.",
+    "Mucosal antibody titres and viral neutralisation assays": {"assay": "neutralization", "isotype": "na"},
+    "Humoral response (IgG/IgA titres)": {"assay": "multiplex_binding", "isotype": "split_IgG_IgA"},
+    "Humoral response (IgG/IgA titers) and antibody HAI assay": {"assay": "multiplex_binding", "isotype": "split_IgG_IgA"},
+    "Antibody HAI assay": {"assay": "hai", "isotype": "total"},
+    "Antigen binding and viral neutralisation by mucosal antibodies": {"assay": "neutralization", "isotype": "na"},
+    "Antibody affinity and neutralisation assays": {"assay": "neutralization", "isotype": "na"},
+    "Fc Receptor Characterisation": {"assay": "multiplex_binding", "isotype": "na"},
+    "Viral PCR": null,
+    "Cytokine profiling": null,
+    "Single-cell RNA-sequencing": null,
+    "Flow cytometry and single-cell RNA-sequencing for cellular response": null,
+    "Flow cytometry and single-cell RNA-sequencing for cellular response comparing airway cells with PBMCs.": null
+  },
+  "fields_the_table_does_not_record": [
+    "unit",
+    "normalization",
+    "lloq",
+    "antigen",
+    "lab"
+  ]
+}

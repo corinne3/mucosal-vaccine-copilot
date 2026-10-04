@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+
+# Generated artefacts — reproducible with `python -m mvc.cli demo`
+outputs/
+schemas/*.schema.json
+
+# Downloaded corpus — reproducible with `python -m mvc.cli download`
+data/raw/
+data/evidence/extracted_evidence.json
+data/evidence/ctgov_designs.json
+data/evidence/.embed_cache.json
+data/synthetic/*.csv
+
+# Offline pip wheelhouse (large)
+vendor/wheels/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

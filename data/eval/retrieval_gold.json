@@ -1,0 +1,122 @@
+{
+  "description": "Gold set for retrieval evaluation. For each query, the finding ids a human judge marks relevant, judged on CONTENT, never on what the retriever happens to rank highly. Revision history matters here: when Rosenheim 2026 was added, recall@3 fell from 0.79 to 0.71 — not because retrieval got worse, but because this file only listed the findings that existed when it was written, so genuinely relevant new findings counted as errors. The affected queries were re-judged by hand and newly relevant ids added; the retriever was NOT touched. Findings that merely ranked high without being relevant (e.g. the TRM and tissue-targeting findings surfacing for a baseline-sampling query) were deliberately NOT added. Queries added below exercise the new content.",
+  "cases": [
+    {
+      "query": "do nasal IgA and serum IgG measure the same thing?",
+      "relevant": [
+        "bean2024_f2",
+        "thwaites2023_f1",
+        "rosenheim2026_f06"
+      ]
+    },
+    {
+      "query": "when does mucosal IgA peak compared to IgG?",
+      "relevant": [
+        "tsunetsugu2022_f1",
+        "sheikhmohamed2022_f2"
+      ]
+    },
+    {
+      "query": "do all participants respond to an intranasal vaccine?",
+      "relevant": [
+        "madhavan2022_f1",
+        "sheikhmohamed2022_f1"
+      ]
+    },
+    {
+      "query": "why do I need a baseline sample before vaccination?",
+      "relevant": [
+        "bean2024_f3",
+        "tsunetsugu2022_f3"
+      ]
+    },
+    {
+      "query": "does prior infection affect the measured response?",
+      "relevant": [
+        "singh2023_f3",
+        "tsunetsugu2022_f3"
+      ]
+    },
+    {
+      "query": "is there an accepted correlate of protection for nasal flu vaccines?",
+      "relevant": [
+        "thwaites2023_f5",
+        "bean2024_f4",
+        "rosenheim2026_f04",
+        "rosenheim2026_f16"
+      ]
+    },
+    {
+      "query": "which mucosal endpoint was used as a primary endpoint in a trial?",
+      "relevant": [
+        "thwaites2023_f4",
+        "thwaites2023_f2"
+      ]
+    },
+    {
+      "query": "does an injected influenza vaccine induce salivary IgA?",
+      "relevant": [
+        "tsunetsugu2022_f2"
+      ]
+    },
+    {
+      "query": "how do I make ELISA values quantitative rather than arbitrary units?",
+      "relevant": [
+        "tsunetsugu2022_f4"
+      ]
+    },
+    {
+      "query": "can blood plasmablasts be used as a mucosal marker?",
+      "relevant": [
+        "singh2023_f4"
+      ]
+    },
+    {
+      "query": "is intranasal delivery weaker systemically than intramuscular?",
+      "relevant": [
+        "madhavan2022_f2",
+        "bean2024_f1"
+      ]
+    },
+    {
+      "query": "what sampling day after the second dose was used in a phase 3 nasal vaccine trial?",
+      "relevant": [
+        "singh2023_f1"
+      ]
+    },
+    {
+      "query": "does freezing or fixing a sample change the assay result?",
+      "relevant": [
+        "rosenheim2026_f07",
+        "rosenheim2026_f08"
+      ]
+    },
+    {
+      "query": "what makes a Tier 1 assay acceptable for regulatory endpoints?",
+      "relevant": [
+        "rosenheim2026_f12"
+      ]
+    },
+    {
+      "query": "why can results not be compared across different trials?",
+      "relevant": [
+        "rosenheim2026_f02",
+        "rosenheim2026_f09",
+        "rosenheim2026_f01"
+      ]
+    },
+    {
+      "query": "can tissue resident memory T cells be measured in blood?",
+      "relevant": [
+        "rosenheim2026_f05"
+      ]
+    },
+    {
+      "query": "do regulators accept mucosal endpoints instead of serum?",
+      "relevant": [
+        "rosenheim2026_f13",
+        "rosenheim2026_f14"
+      ]
+    }
+  ]
+}
