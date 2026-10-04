@@ -163,15 +163,19 @@ def test_annotation_y_is_an_exponent_on_a_log_axis():
     """
     df, fig = _demo_figure()
     ymax = float(df["value"].max())
-    for a in fig.ann:
-        if "identifiable" in str(a.get("text", "")):
-            assert a["y"] <= np.log10(ymax) + 1, (
-                f"annotation y={a['y']} is a raw value, not log10 — the axis will explode")
+    notes = [a for a in fig.layout.annotations if "too few to fit" in str(a.text)]
+    assert notes, "the demo dataset must contain at least one unfittable series"
+    for a in notes:
+        assert a.y <= np.log10(ymax) + 1, (
+            f"annotation y={a.y} is a raw value, not log10 — the axis will explode")
 
 
 def test_peak_marker_never_leaves_the_observation_window():
     """A fitted peak beyond the last visit is an artefact, not an observation."""
     df, fig = _demo_figure()
     last_day = float(df["day"].max())
-    outside = [s["x"] for s in fig.lines if "x" in s and s["x"] > last_day]
+    # add_vline(x=v) becomes a shape with x0 == x1 == v
+    xs = [s.x0 for s in fig.layout.shapes if getattr(s, "x0", None) is not None]
+    assert xs, "no peak markers at all: the assertion below would be vacuous"
+    outside = [x for x in xs if x > last_day]
     assert not outside, f"peak markers drawn past day {last_day}: {outside}"

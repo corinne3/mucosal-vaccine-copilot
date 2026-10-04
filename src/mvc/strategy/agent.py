@@ -252,6 +252,11 @@ class AgentState:
     critique: Critique | None = None
     report: str = ""
     revisions: int = 0
+    #: None = use the LLM when a text model is pulled. True/False pin it.
+    #: A run whose behaviour silently depends on which optional models happen
+    #: to be installed cannot be tested or reproduced, so callers that care
+    #: say which parser they want.
+    use_llm: bool | None = None
     log: list[str] = field(default_factory=list)
 
     def note(self, msg: str) -> None:
@@ -259,7 +264,7 @@ class AgentState:
 
 
 def node_parse(st: AgentState) -> str:
-    st.scenario, st.parser = parse_scenario(st.text)
+    st.scenario, st.parser = parse_scenario(st.text, use_llm=st.use_llm)
     st.note(f"parse: {st.parser} -> {st.scenario.vaccine.route.value} "
             f"{st.scenario.vaccine.platform.value}, {st.scenario.max_visits} visits, "
             f"questions={st.scenario.questions}")
@@ -343,9 +348,16 @@ NODES: dict[str, Callable[[AgentState], str]] = {
 }
 
 
-def run_agent(text: str, eb: EvidenceBase, max_steps: int = 12) -> AgentState:
-    """Hand-rolled executor: no dependency, deterministic, fully traced."""
-    st = AgentState(text=text, eb=eb)
+def run_agent(text: str, eb: EvidenceBase, max_steps: int = 12,
+              use_llm: bool | None = None) -> AgentState:
+    """Hand-rolled executor: no dependency, deterministic, fully traced.
+
+    `use_llm=False` pins the deterministic parser, which is what any test of
+    the agent's own logic wants: otherwise the result depends on whether an
+    optional 3B model is installed on the machine running it, and the test
+    passes or fails for reasons that have nothing to do with the code.
+    """
+    st = AgentState(text=text, eb=eb, use_llm=use_llm)
     node = "parse"
     for _ in range(max_steps):
         if node == "END":

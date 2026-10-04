@@ -65,7 +65,7 @@ Beyond the brief (the "more techniques" part):
 | **Real-world case** | Table 1 of the workshop report: 6 ongoing consortia, 38 measurement contexts, every pair run through the engine | `mvc/consortia.py` |
 | MCP server | the same engines as tools for Claude Desktop / Claude Code | `mvc/mcp_server.py` |
 | Eval harness | 8 gating metrics + 2 informational, thresholds that fail CI | `mvc/eval/` |
-| CI | lint, 198 tests, evals, demo, evidence-integrity gate | `.github/workflows/ci.yml` |
+| CI | lint, 199 tests, evals, demo, evidence-integrity gate | `.github/workflows/ci.yml` |
 
 ---
 
@@ -85,7 +85,7 @@ python -m mvc.cli doctor      # what is installed, what is missing
 python -m mvc.cli demo        # objectives 1-6 end to end -> outputs/
 python -m mvc.cli dashboard   # the Streamlit dashboard (walkthrough: docs/MANUEL_DASHBOARD.md,
                               # demo script: docs/DEMO.md)
-pytest -q                     # 198 tests
+pytest -q                     # 199 tests
 python -m mvc.eval.run        # 8 gating metrics against thresholds
 ```
 
@@ -158,7 +158,7 @@ app/dashboard.py         objective 4 — Streamlit
 data/evidence/           the verified evidence base (JSON, hand-checked quotes)
 data/eval/               retrieval gold set
 docs/                    architecture, per-objective notes, domain primer, train plan
-tests/                   198 tests
+tests/                   199 tests
 scripts/download_pack.py run at home before the train
 ```
 

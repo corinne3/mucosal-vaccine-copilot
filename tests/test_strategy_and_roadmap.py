@@ -203,16 +203,41 @@ def test_agent_runs_and_reports(eb):
 
 
 def test_agent_self_corrects_an_impossible_request(eb):
-    """3 visits + durability is contradictory; the agent must notice and repair once."""
-    st = run_agent("intranasal adenovirus covid vaccine, 3 visits, 90 days follow up, durability", eb)
+    """3 visits + durability is contradictory; the agent must notice and repair once.
+
+    Pinned to the rule parser. Left free, this test passed on a machine with no
+    text model and failed on one with `qwen2.5:3b` installed — not because the
+    agent's logic differed, but because the model read "3 visits" as 6, so there
+    was no contradiction left for the agent to notice. A test of the agent must
+    not depend on which optional models the machine happens to have.
+    """
+    st = run_agent("intranasal adenovirus covid vaccine, 3 visits, 90 days follow up, durability",
+                   eb, use_llm=False)
+    assert st.parser == "rules"
     assert st.revisions == 1
     assert st.critique.passed
     assert max(st.proposal.sampling_days) >= 90
 
 
 def test_agent_revision_is_bounded(eb):
-    st = run_agent("x", eb)
+    st = run_agent("x", eb, use_llm=False)
     assert st.revisions <= 1
+
+
+def test_the_rule_parser_reads_an_explicit_visit_count_correctly(eb):
+    """The claim the "rules vs LLM" panel rests on, pinned as a test.
+
+    A 3B model asked for a JSON scenario returned `max_visits: 6` — the value
+    from its own prompt's example — for a sentence that says "3 visits". The
+    rules, which look for a digit next to the word, got it right. This is the
+    honest version of "we have an LLM": on a plain, explicit number the
+    keyword parser is not merely adequate, it is better, and the model's
+    advantage lies elsewhere (negation, spelled-out numbers, unusual order).
+    """
+    from mvc.strategy.agent import parse_scenario_rules
+    for n in (2, 3, 7, 11):
+        s = parse_scenario_rules(f"intranasal LAIV, {n} visits, 90 days follow up")
+        assert s.max_visits == n, f"'{n} visits' parsed as {s.max_visits}"
 
 
 def test_critique_catches_a_tampered_quote(eb):

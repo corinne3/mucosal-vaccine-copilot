@@ -80,9 +80,26 @@ across half a year.
 
 Expect disagreement: the rules key on literal words, so "four dozen" and "half
 a year" are invisible to them, and "not an injected study" may be read as
-*injected* because the keyword matcher does not see negation. The LLM should
-get these. **This is where a model earns its place** — not on ordinary
-sentences, but on negation, spelled-out numbers and unusual phrasing.
+*injected* because the keyword matcher does not see negation. That is where a
+model earns its place — not on ordinary sentences, but on negation,
+spelled-out numbers and unusual phrasing.
+
+**But do not promise that the model wins.** It was measured, and the result cut
+both ways. Asked for a JSON scenario from
+
+```
+intranasal adenovirus covid vaccine, 3 visits, 90 days follow up, durability
+```
+
+`qwen2.5:3b` returned `max_visits: 6` — the value from the example in its own
+prompt — for a sentence that plainly says *3 visits*. The keyword rules read 3.
+On an explicit number next to its noun, the rules are not merely adequate, they
+are **better**: they cannot hallucinate a value they did not see.
+
+Run that sentence through the panel too. A demo where the model is shown losing
+a round is worth more than one where it always wins, and it is the honest basis
+for the architecture: **the rules are on the critical path, the model is an
+option on top of them.**
 
 > Without `qwen2.5:3b` pulled, the panel says so and shows the rules alone.
 > `ollama pull qwen2.5:3b` enables it (≈2 GB).
