@@ -21,7 +21,6 @@ from mvc.consortia import (
 )
 from mvc.schema import METHOD_COMPARTMENT, Compartment, MeasurementContext
 
-
 # --- the transcription ------------------------------------------------------
 
 def test_the_six_consortia_of_table_1_are_all_present():

@@ -48,7 +48,10 @@ def run(cmd: list[str], **kw) -> int:
 
 # --------------------------------------------------------------------------- #
 def step_deps(args) -> bool:
-    if sys.version_info < (3, 10):
+    # ruff flags this as dead code because pyproject requires >=3.10. It is not:
+    # this script is the first thing a user runs, on whatever interpreter is on
+    # their PATH, before anything has checked their Python at all.
+    if sys.version_info < (3, 10):  # noqa: UP036
         say(FAIL, f"Python {sys.version_info.major}.{sys.version_info.minor} — need 3.10+")
         return False
     say(OK, f"Python {sys.version.split()[0]}")

@@ -16,6 +16,7 @@ back to its source.
 
 from __future__ import annotations
 
+import contextlib
 import difflib
 import re
 import unicodedata
@@ -296,10 +297,9 @@ def extract_llm(
     def _enum(cls, vals):
         out = []
         for v in vals:
-            try:
+            # a model that invents an enum member is ignored, not trusted
+            with contextlib.suppress(ValueError):
                 out.append(cls(v))
-            except ValueError:
-                pass
         return out
 
     methods = _enum(SamplingMethod, parsed.sampling_methods)

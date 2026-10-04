@@ -15,7 +15,6 @@ context two numbers cannot be compared, and the comparability engine
 from __future__ import annotations
 
 from enum import Enum
-from typing import Optional
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
@@ -185,7 +184,7 @@ class Population(_Base):
     pediatric: bool = False
 
     @model_validator(mode="after")
-    def _check_age(self) -> "Population":
+    def _check_age(self) -> Population:
         if self.age_min > self.age_max:
             raise ValueError("age_min > age_max")
         return self
@@ -214,7 +213,7 @@ class ImmuneEndpoint(_Base):
     primary: bool = False
 
     @model_validator(mode="after")
-    def _coherent(self) -> "ImmuneEndpoint":
+    def _coherent(self) -> ImmuneEndpoint:
         if METHOD_COMPARTMENT[self.method] != self.compartment:
             raise ValueError(
                 f"sampling method {self.method.value} does not sample compartment {self.compartment.value}"
@@ -233,7 +232,7 @@ class TrialDesign(_Base):
     follow_up_days: int = 180
 
     @model_validator(mode="after")
-    def _endpoints_are_sampled(self) -> "TrialDesign":
+    def _endpoints_are_sampled(self) -> TrialDesign:
         sampled = {s.method for s in self.sampling}
         missing = [e.endpoint_id for e in self.endpoints if e.method not in sampled]
         if missing:
@@ -255,10 +254,10 @@ class KineticParameters(_Base):
     baseline: float
     peak_value: float
     peak_day: float
-    half_life_days: Optional[float] = None
-    fold_rise: Optional[float] = None
-    ci_peak_day: Optional[tuple[float, float]] = None
-    ci_half_life: Optional[tuple[float, float]] = None
+    half_life_days: float | None = None
+    fold_rise: float | None = None
+    ci_peak_day: tuple[float, float] | None = None
+    ci_half_life: tuple[float, float] | None = None
     n_subjects: int = 0
     n_timepoints: int = 0
     identifiable: bool = True
@@ -276,7 +275,7 @@ class MeasurementContext(_Base):
     normalization: Normalization = Normalization.none
     antigen: str = "unspecified"
     lab: str = "lab_1"
-    lloq: Optional[float] = Field(default=None, description="lower limit of quantification")
+    lloq: float | None = Field(default=None, description="lower limit of quantification")
     source: str = Field(default="measured", description="measured | digitized_from_figure | synthetic")
 
 
@@ -284,7 +283,7 @@ class Measurement(_Base):
     subject_id: str
     arm_id: str
     day: float
-    value: Optional[float]
+    value: float | None
     context: MeasurementContext
     below_lloq: bool = False
 
@@ -295,7 +294,7 @@ class Measurement(_Base):
 class TrialScenario(_Base):
     name: str
     vaccine: Vaccine
-    comparator: Optional[Vaccine] = None
+    comparator: Vaccine | None = None
     population: Population = Field(default_factory=Population)
     dose_days: list[int] = Field(default_factory=lambda: [0])
     n_participants: int = 30
@@ -323,14 +322,14 @@ class Study(_Base):
     study_id: str
     citation: str
     year: int
-    doi: Optional[str] = None
-    pmid: Optional[str] = None
-    nct: Optional[str] = None
-    url: Optional[str] = None
+    doi: str | None = None
+    pmid: str | None = None
+    nct: str | None = None
+    url: str | None = None
     pathogen: str
     vaccines: list[Vaccine] = Field(default_factory=list)
     population: str = "not reported"
-    n_participants: Optional[int] = None
+    n_participants: int | None = None
     sampling_methods: list[SamplingMethod] = Field(default_factory=list)
     compartments: list[Compartment] = Field(default_factory=list)
     timepoints_days: list[int] = Field(default_factory=list)

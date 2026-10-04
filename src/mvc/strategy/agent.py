@@ -25,8 +25,9 @@ LangGraph `StateGraph`, so you can show either in the demo.
 from __future__ import annotations
 
 import json
+from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import Any, Callable
+from typing import Any
 
 from .. import llm
 from ..evidence.extract import quote_in_source
@@ -408,7 +409,7 @@ _COMPARED_FIELDS = (
 )
 
 
-def _flatten(s: "TrialScenario") -> dict[str, object]:
+def _flatten(s: TrialScenario) -> dict[str, object]:
     return {
         "pathogen": s.vaccine.pathogen,
         "platform": s.vaccine.platform.value,

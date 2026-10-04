@@ -16,10 +16,10 @@ a human message and a suggested remedy.
 
 from __future__ import annotations
 
+from collections.abc import Callable, Iterable
 from dataclasses import dataclass, field
 from enum import IntEnum
 from itertools import combinations
-from typing import Callable, Iterable, Optional
 
 import pandas as pd
 
@@ -65,7 +65,7 @@ class ComparabilityResult:
         }
 
 
-Rule = Callable[[MeasurementContext, MeasurementContext, dict], Optional[Flag]]
+Rule = Callable[[MeasurementContext, MeasurementContext, dict], Flag | None]
 RULES: list[Rule] = []
 
 

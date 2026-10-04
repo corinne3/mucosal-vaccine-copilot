@@ -61,12 +61,12 @@ def cmd_download(args) -> None:
 
 
 def cmd_build_evidence(args) -> None:
+    import time
+
     from .evidence.extract import extract
     from .evidence.ingest import load_ctgov, load_raw_documents
     from .evidence.store import EXTRACTED_PATH, save
     from .schema import EvidenceBase
-
-    import time
 
     docs = load_raw_documents()
     if not docs:
@@ -83,10 +83,10 @@ def cmd_build_evidence(args) -> None:
         print(f"LLM extractor: {llm.LLM_MODEL} on {len(docs)} documents, roughly {est:.0f} min on CPU.")
         print("  --no-llm uses the deterministic extractor instead (seconds).")
         print("  --limit N tries a few documents first.")
-        if not args.yes and est > 10:
-            if input("  continue? [y/N] ").strip().lower() not in ("y", "yes"):
-                print("aborted — nothing written.")
-                return
+        if (not args.yes and est > 10
+                and input("  continue? [y/N] ").strip().lower() not in ("y", "yes")):
+            print("aborted — nothing written.")
+            return
     else:
         print(f"deterministic extractor (verbatim sentences) on {len(docs)} documents.")
 
@@ -230,7 +230,8 @@ def cmd_doctor(args) -> None:
 def cmd_demo(args) -> None:
     """Run objectives 1-6 end to end and write every artefact."""
     from .comparability import audit_table, comparability_matrix
-    from .roadmap import build_roadmap, to_dataframe, to_markdown as rm_md
+    from .roadmap import build_roadmap, to_dataframe
+    from .roadmap import to_markdown as rm_md
     from .strategy.agent import run_agent, trace_json
     from .synthetic import demo_dataset
 

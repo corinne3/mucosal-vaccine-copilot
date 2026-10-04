@@ -173,5 +173,5 @@ def test_peak_marker_never_leaves_the_observation_window():
     """A fitted peak beyond the last visit is an artefact, not an observation."""
     df, fig = _demo_figure()
     last_day = float(df["day"].max())
-    outside = [l["x"] for l in fig.lines if "x" in l and l["x"] > last_day]
+    outside = [s["x"] for s in fig.lines if "x" in s and s["x"] > last_day]
     assert not outside, f"peak markers drawn past day {last_day}: {outside}"

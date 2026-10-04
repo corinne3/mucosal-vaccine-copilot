@@ -25,9 +25,7 @@ from .store import ROOT, Chunk
 
 CACHE = ROOT / "data" / "evidence" / ".embed_cache.json"
 
-_STOP = set("""a an the of and or in on to for with by from at as is are was were be been this that these
-those it its we our their which who than then not no but after before during between into over under
-may might can could would should also both each such per via""".split())
+_STOP = set(["a", "an", "the", "of", "and", "or", "in", "on", "to", "for", "with", "by", "from", "at", "as", "is", "are", "was", "were", "be", "been", "this", "that", "these", "those", "it", "its", "we", "our", "their", "which", "who", "than", "then", "not", "no", "but", "after", "before", "during", "between", "into", "over", "under", "may", "might", "can", "could", "would", "should", "also", "both", "each", "such", "per", "via"])
 
 SYNONYMS = {
     "iga": ["siga", "secretory", "mucosal"],
@@ -115,7 +113,7 @@ class BM25:
 
     def scores(self, query: list[str]) -> np.ndarray:
         s = np.zeros(self.N)
-        for i, (tf, d) in enumerate(zip(self.tf, self.docs)):
+        for i, (tf, d) in enumerate(zip(self.tf, self.docs, strict=True)):
             norm = self.k1 * (1 - self.b + self.b * len(d) / self.avgdl)
             for q in query:
                 if q in tf:
@@ -179,7 +177,8 @@ class HybridSearcher:
             try:
                 for n, start in enumerate(range(0, len(todo), batch_size), start=1):
                     batch = todo[start:start + batch_size]
-                    for i, v in zip(batch, llm.embed([self.chunks[i].text for i in batch])):
+                    for i, v in zip(batch, llm.embed([self.chunks[i].text for i in batch]),
+                    strict=True):  # a short reply means the model dropped a passage
                         cache[keys[i]] = v
                     CACHE.write_text(json.dumps(cache))  # flush per batch
                     done = min(start + batch_size, len(todo))

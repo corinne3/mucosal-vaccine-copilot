@@ -23,8 +23,7 @@ from ..evidence.extract import quote_in_source
 from ..evidence.search import HybridSearcher
 from ..evidence.store import ROOT, chunks, load
 from ..kinetics import fit_kinetics, peak_time
-from ..synthetic import PROFILES, bateman_from_shape, generate_arm
-from ..synthetic import demo_series
+from ..synthetic import PROFILES, bateman_from_shape, demo_series, generate_arm
 
 GOLD = ROOT / "data" / "eval" / "retrieval_gold.json"
 

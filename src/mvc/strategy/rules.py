@@ -22,8 +22,8 @@ Design: small pure functions registered in RULES, each appending to a mutable
 
 from __future__ import annotations
 
+from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import Callable
 
 from pydantic import BaseModel, Field
 

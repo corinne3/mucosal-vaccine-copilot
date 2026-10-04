@@ -43,4 +43,8 @@ target-version = "py310"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM"]
-ignore = ["B008", "E501"]
+# B008: FastAPI/pydantic-style defaults are intentional here.
+# E501: line length is enforced by `line-length` above, not by the linter twice.
+# SIM108: a two-branch if/else that names the two cases reads better than a
+#         ternary when the branches are the point, not the value.
+ignore = ["B008", "E501", "SIM108"]

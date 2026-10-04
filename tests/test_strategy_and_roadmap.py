@@ -18,7 +18,8 @@ from mvc.strategy.agent import (
     trace_json,
 )
 from mvc.strategy.optimal_design import compare_designs, optimal_days, profile_for
-from mvc.strategy.rules import evidence_timepoints, propose, to_markdown as strategy_md
+from mvc.strategy.rules import evidence_timepoints, propose
+from mvc.strategy.rules import to_markdown as strategy_md
 from mvc.synthetic import demo_dataset
 
 

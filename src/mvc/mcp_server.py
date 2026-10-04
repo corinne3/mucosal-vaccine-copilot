@@ -20,12 +20,13 @@ try:  # SDK v2
 except ImportError:  # pragma: no cover - SDK v1 fallback
     from mcp.server.fastmcp import FastMCP as _Server
 
-from .comparability import MeasurementContext, compare, comparability_matrix, explain
+from .comparability import MeasurementContext, comparability_matrix, compare, explain
 from .evidence.graph import build_graph, coverage_gaps, studies_for_tag
 from .evidence.search import HybridSearcher
 from .evidence.store import chunks, load
 from .kinetics import fit_kinetics
-from .roadmap import build_roadmap, to_markdown as roadmap_md
+from .roadmap import build_roadmap
+from .roadmap import to_markdown as roadmap_md
 from .strategy.agent import run_agent
 from .synthetic import demo_dataset
 
