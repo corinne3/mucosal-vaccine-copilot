@@ -184,6 +184,20 @@ scripts/download_pack.py run at home before the train
 - The author is a software/AI architect, not an immunologist. Everything requiring
   domain judgement is surfaced as an open question rather than answered.
 
+## Documentation
+
+| Document | For whom |
+|---|---|
+| [docs/STACK.md](docs/STACK.md) | **technical documentation** — stack, architecture, algorithms, decisions, defects |
+| [docs/POUR_LOVALTECH.md](docs/POUR_LOVALTECH.md) | **partner notice (FR)** — plain language, what it does and does not do, installation |
+| [docs/PITCH.md](docs/PITCH.md) | 6-minute pitch, slide by slide |
+| [docs/IMPACT_CANVAS.md](docs/IMPACT_CANVAS.md) | Impact & Innovation Canvas |
+| [docs/DEMO.md](docs/DEMO.md) | what to type in each box, and what should come out |
+| [docs/MANUEL_DASHBOARD.md](docs/MANUEL_DASHBOARD.md) | dashboard manual, control by control, with the code behind each |
+| [docs/DOMAIN_PRIMER.md](docs/DOMAIN_PRIMER.md) | the immunology this project relies on |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | module-level architecture |
+| [docs/LIMITS.md](docs/LIMITS.md) | what it is not |
+
 ## Scope
 
 Not clinical advice. Not a medical device. Not a trial protocol. No patient data, no
